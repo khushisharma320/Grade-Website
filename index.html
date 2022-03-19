@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+    <div class="upper">
+
+    </div>
+    <div class="container">
+        <h3>STUDENT GRADE CALCULATOR</h3>
+        <div class="appform">
+            <div class="appformgroup">
+                <input type="text" class="appformcontrol" placeholder="MATHS" id="maths">
+            </div>
+            <div class="appformgroup">
+                <input type="text" class="appformcontrol" placeholder="HINDI" id="hindi">
+            </div>
+            <div class="appformgroup">
+                <input type="text" class="appformcontrol" placeholder="ENGLISH" id="english">
+            </div>
+            <div class="appformgroup">
+                <input type="text" class="appformcontrol" placeholder="SCIENCE" id="science">
+            </div>
+            <div>
+                <input type="button" name="" value="SHOW RESULT" class="appformbutton" onclick="calcy()">
+            </div>
+
+            <div>
+                <div class="appformgroup showdata">
+                    <p id="showData"> </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const calcy = () => {
+            let maths = document.getElementById('maths').value;
+            let hindi = document.getElementById('hindi').value;
+            let english = document.getElementById('english').value;
+            let science = document.getElementById('science').value;
+            let grades = " ";
+
+
+            let totalgrades = parseFloat(maths) + parseFloat(hindi) + parseFloat(english) + parseFloat(science);
+            alert(totalgrades);
+
+            let perc = (totalgrades / 400) * 100;
+            alert(perc);
+
+            if (perc <= 100 && perc >= 80) {
+                grades = 'A';
+
+            }else if(perc <= 79 && perc >= 60){
+                grades = 'B';
+            }else if(perc <= 59 && perc >= 40){
+                grades = 'C';
+
+            }else {
+                grades = 'F';
+            }
+
+            if(perc>=39.5){
+                document.getElementById('showData').innerHTML = `Out of 400 your total is ${totalgrades} and percentage is ${perc}%. Your grade = ${grades}.<h5 class="pass">PASS</h5>`
+
+            }
+            else{
+                document.getElementById('showData').innerHTML = `Out of 400 your total is ${totalgrades} and percentage is ${perc}%. Your grade = ${grades}.<h5 class="fail">FAIL</h5>`
+
+
+            }
+
+            
+
+
+        }
+
+    </script>
+</body>
+
+</html>
